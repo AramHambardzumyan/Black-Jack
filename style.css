@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #009A1A;
+}
+img{
+    width: 100px;
+    height:150px;
+}
+.secondCard {
+    margin-top: 10px;
+}
+#cardArea{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.cardsDiv{
+    flex-direction: column;
+    display: flex;
+    padding: 40px;
+}
+.pointersNone{
+    pointer-events: none;
+}
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#display{
+    width: 50%;
+    height: 26vh;
+    border: 2px solid black;
+    margin:  0 30px;
+    background-color:antiquewhite;
+    text-align: center;
+}
+.windowPlayer{
+    height: 26vh;
+    text-align: center;
+    width: 20%;
+    background-color:antiquewhite;
+    border: 2px solid black;
+    padding:  0 15px 15px 15px;
+}
+button{
+    margin-top: 20px;
+    text-align: center;
+}
