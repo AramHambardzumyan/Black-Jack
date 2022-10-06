@@ -15,6 +15,7 @@ let firstPlayerResult = 0
 let secondPlayerResult = 0
 let addCount = 1
 let count = 0
+let isFin  = false
 
 let array = [
     {
@@ -72,6 +73,8 @@ let array = [
 
 card.map((el, index) => {
     el.addEventListener('click', () => {
+        console.log(isFin);
+        if(isFin === false){
         if (count === index) {
             console.log(index)
             console.log(count)
@@ -95,12 +98,12 @@ card.map((el, index) => {
                 if (firstPlayerResult > secondPlayerResult && firstPlayerResult > 21) {
                     display.innerHTML = `<p style="color: green;">SECOND Player WIN</p>
                     <h6>FIRST Player LOSE<h6>`
-                    count = null
+                    isFin = true
                 } else if (firstPlayerResult === 21) {
                     display.innerHTML = `<p>!BLACK JACK!</p>
                     <p style="color: green;">FIRST Player WIN</p>
                     <h6>SECOND Player LOSE</h6>`
-                    count = null
+                    isFin = true
                 }
             } else if (index === 1 || index === 3 || index === 5 || index === 7 || index === 9) {
                 if (randomImage.image === './image/a.jpg') {
@@ -120,33 +123,34 @@ card.map((el, index) => {
                 if (secondPlayerResult > firstPlayerResult && secondPlayerResult > 21) {
                     display.innerHTML = `<p style="color: green;">FIRST Player WIN</p>
                     <h6>SECOND Player LOSE</h6>`
-                    count = null
+                    isFin = true
                 } else if (secondPlayerResult === 21) {
                     display.innerHTML = `<p>!BLACK JACK!</p>
                     <p style="color: green;"> SECOND Player WIN</p>
                     <h6>FIRST Player LOSE</h6>`
-                    count = null
+                    isFin = true
                 } else if (secondPlayerResult === 21 && firstPlayerResult === 21) {
                     display.innerHTML = `Don't have a winner`
-                    count = null
+                    isFin = true
                 }
             }
         }
+    }
     })
 })
 
 finishFirstPayerGame.addEventListener('click', () => {
     finishFirstPayerGame.style.backgroundColor = 'red'
     if (finishSecondPlayerGame.style.backgroundColor === 'red') {
-        count = null
+        isFin = true
         if (firstPlayerResult > secondPlayerResult && firstPlayerResult < 21) {
             display.innerHTML = `<p style="color: green;">FIRST Player WIN</p>
             <h6>SECOND Player LOSE</h6>`
-            count = null
+            isFin = true
         } else if (secondPlayerResult > firstPlayerResult && secondPlayerResult < 21) {
             display.innerHTML = `<p style="color: green;"> SECOND Player WIN</p>
             <h6>FIRST Player LOSE</h6>`
-            count = null
+            isFin = true
         }
     }
     if (count % 2 === 1) {
@@ -161,15 +165,15 @@ finishFirstPayerGame.addEventListener('click', () => {
 finishSecondPlayerGame.addEventListener('click', () => {
     finishSecondPlayerGame.style.backgroundColor = 'red'
     if (finishFirstPayerGame.style.backgroundColor === 'red') {
-        count = null
+        isFin = true
         if (firstPlayerResult > secondPlayerResult && firstPlayerResult < 21) {
             display.innerHTML = `<p style="color: green;">FIRST Player WIN</p>
             <h6>SECOND Player LOSE</h6>`
-            count = null
+            isFin = true
         } else if (secondPlayerResult > firstPlayerResult && secondPlayerResult < 21) {
             display.innerHTML = `<p style="color: green;"> SECOND Player WIN</p>
             <h6>FIRST Player LOSE</h6>`
-            count = null
+            isFin = true
         }
     }
     if (count % 2 === 0) {
